@@ -49,11 +49,14 @@ class HermiteSubdomainInterpolator:
         b = []
         for i, _ in enumerate(target):
             if i == 0:
-                b.append((target[i+1] - target[i]) / (2*(dom[i+1] - dom[i])))
+                b.append((target[i+1] - target[i]) / (dom[i+1] - dom[i]))
             elif i == len(target) - 1:
-                b.append((target[i] - target[i-1]) / (2*(dom[i] - dom[i-1])))
+                b.append((target[i] - target[i-1]) / (dom[i] - dom[i-1]))
             else:
-                b.append((target[i+1] - target[i-1]) / (dom[i+1] - dom[i-1]))
+                s1 = (target[i+1] - target[i]) / (dom[i+1] - dom[i])
+                s2 = (target[i] - target[i-1]) / (dom[i] - dom[i-1])
+                w = s2 / (s1 + s2)
+                b.append(w * s1 + (1.0 - w) * s2)
 
         return a, b
 
@@ -74,13 +77,10 @@ if __name__ == "__main__":
     H = np.array([0.0, 540.6, 1062.8, 8687.4, 13924.3, 22650.2])
     dom = H; target = B
     hsi = HermiteSubdomainInterpolator()
-    poly = hsi.polynomial
     y, sub_doms = hsi.interpolate(dom, target)
-    x_range = np.linspace(0.0, H[-1], num=10000)
+    x_range = np.linspace(0.0, H[-1], num=40000)
     interpolation = []
-    i = -1
     for x in x_range:
-        i += 1
         indx = hsi.determine_sub_domain_index(x, sub_doms)
         interpolation.append(y[indx](x))
     # Perform postprocessing
