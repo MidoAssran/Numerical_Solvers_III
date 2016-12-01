@@ -65,7 +65,7 @@ def determine_parameters(dom, target):
         b[i] = sum([target(k) * lagrange_polynomial(x_k, i, dom) for k, x_k in enumerate(dom)])
 
     # Solve LSE
-
+    
 
 def interpolate_first_n(n=6):
 
