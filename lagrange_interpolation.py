@@ -32,7 +32,7 @@ class LagrangeInterpolator:
 
     def determine_model_parameters(self, dom, target):
         """
-        <Minimize least squares error with respect to the (domain, target)>
+        < Least Squares curve fitting >
         :type dom: ndarray([float])
         :type target: ndarray([float])
         :rtype: ndarray([float])
