@@ -14,7 +14,6 @@ class LagrangePolynomial:
             if r != j:
                 polynomial.multiply_binomial(-1.0 * x_r)
         polynomial.divide_scalar(polynomial.evaluate(dom[j]))
-
         self.polynomial = polynomial
         self.coefficients = polynomial.coefficients
         self.degree = polynomial.degree
@@ -46,12 +45,3 @@ class HermiteSubdomainPolynomial:
 
     def evaluate_V(self, x, j, dom):
         return (x - dom[j]) * (self._lagrange(x, j, dom) ** 2)
-
-
-class LagrangeSubdomainPolynomial:
-
-    def evaluatex(self, x, j, dom):
-        if j == 0:
-            return (x - dom[j+1]) / (dom[j] - dom[j+1])
-        elif j == 1:
-            return (x - dom[j-1]) / (dom[j] - dom[j-1])
