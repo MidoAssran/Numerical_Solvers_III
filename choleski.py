@@ -13,7 +13,7 @@ import timeit
 import numpy as np
 from utils import matrix_transpose
 
-DEBUG = True
+DEBUG = False
 
 class CholeskiDecomposition(object):
 

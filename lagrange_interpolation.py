@@ -11,47 +11,63 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils import *
 from choleski import CholeskiDecomposition
-from polynomials import LagrangePolynomial
+from polynomial_collective import LagrangePolynomial
 
 class LagrangeInterpolator:
 
-    def __init__(self):
-        self.polynomial = LagrangePolynomial()
-
-    def interpolate(self, dom, target):
+    def __init__(self, dom, target):
         """
         :type dom: ndarray([float])
         :type target: ndarray([float])
+        """
+        self.dom, self.target = dom, target
+
+        self.polynomials = []
+        for j in range(len(dom)):
+            self.polynomials.append(LagrangePolynomial(j, dom))
+
+        self.degree = self.polynomials[0].degree
+
+         # Least squares curve fitting
+        self.params = self.determine_model_parameters()
+
+        self.coefficients = [
+            sum([self.params[j] * lp.coefficients[k]
+                for j, lp in enumerate(self.polynomials)])
+            for k in range(self.degree + 1)]
+
+        print(self)
+
+    def interpolate(self):
+        """
         :rtype: lambda(float x)
         """
-        poly = self.polynomial
+        a, polys, dom, target = self.params, self.polynomials, self.dom, self.target
         n = len(dom)    # Number of domain coordinates
-        a = self.determine_model_parameters(dom=dom, target=target)
-        y = lambda x: sum([a[j] * poly.evaluate(x, j, dom) for j in range(n)])
+        y = lambda x: sum([a[j] * polys[j].evaluate(x) for j in range(n)])
         return y
 
-    def determine_model_parameters(self, dom, target):
+    def determine_model_parameters(self):
         """
         < Least Squares curve fitting >
-        :type dom: ndarray([float])
-        :type target: ndarray([float])
         :rtype: ndarray([float])
         """
-        poly = self.polynomial
+        polys, dom, target = self.polynomials, self.dom, self.target
+
         # Create Matrix
         G = np.empty([dom.shape[0], dom.shape[0]])
         G[:] = -1
         for i, row in enumerate(G):
             for j, _ in enumerate(row):
                 if G[i,j] == -1:
-                    G[i,j] = sum([poly.evaluate(x_k, i, dom) * poly.evaluate(x_k, j, dom) for x_k in dom])
+                    G[i,j] = sum([polys[i].evaluate(x_k) * polys[j].evaluate(x_k) for x_k in dom])
                     G[j,i] = G[i,j]
 
         # Create target
         b = np.empty([dom.shape[0]])
         b[:] = -1
         for i, _ in enumerate(b):
-            b[i] = sum([target[k] * poly.evaluate(x_k, i, dom) for k, x_k in enumerate(dom)])
+            b[i] = sum([target[k] * polys[i].evaluate(x_k) for k, x_k in enumerate(dom)])
 
 
         # Solve LSE using Choleski Decomposition: solve Ga = b
@@ -61,6 +77,10 @@ class LagrangeInterpolator:
 
         return chol_d.solve(A=A, b=y)
 
+    def __str__(self):
+        l = ["({:.5})*x^{}".format(c, self.degree-i) for i, c in enumerate(self.coefficients)]
+        return "Polynomial:\n   " + " + ".join(l) + "\n"
+
 
 if __name__ == "__main__":
     print("\n", end="\n")
@@ -69,10 +89,10 @@ if __name__ == "__main__":
     print("# ----------------------------------- #", end="\n\n")
     B = np.array([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
     H = np.array([0.0, 14.7, 36.5, 71.7, 121.4, 197.4])
-    dom = H; target = B
-    li = LagrangeInterpolator()
-    y = li.interpolate(dom, target)
-    x_range = np.linspace(0.0, H[-1], num=100000)
+    dom, target = H, B
+    li = LagrangeInterpolator(dom=dom, target=target)
+    y = li.interpolate()
+    x_range = np.linspace(0.0, H[-1], num=10000)
     interpolation = [y(x) for x in x_range]
     # Perform postprocessing
     fig, ax = plt.subplots()
@@ -92,10 +112,10 @@ if __name__ == "__main__":
     print("# ----------------------------------- #", end="\n\n")
     B = np.array([0.0, 1.3, 1.4, 1.7, 1.8, 1.9])
     H = np.array([0.0, 540.6, 1062.8, 8687.4, 13924.3, 22650.2])
-    dom = H; target = B
-    li = LagrangeInterpolator()
-    y = li.interpolate(dom, target)
-    x_range = np.linspace(0.0, H[-1], num=100000)
+    dom, target = H, B
+    li = LagrangeInterpolator(dom=dom, target=target)
+    y = li.interpolate()
+    x_range = np.linspace(0.0, H[-1], num=10000)
     interpolation = [y(x) for x in x_range]
     # Perform postprocessing
     fig, ax = plt.subplots()

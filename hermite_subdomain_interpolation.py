@@ -11,23 +11,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 from utils import *
 from choleski import CholeskiDecomposition
-from polynomials import HermiteSubdomainPolynomial
+from polynomial_collective import HermiteSubdomainPolynomial
 
 class HermiteSubdomainInterpolator:
 
-    def __init__(self):
-        self.polynomial = HermiteSubdomainPolynomial()
-
-    def interpolate(self, dom, target):
+    def __init__(self, dom, target):
         """
         :type dom: ndarray([float])
         :type target: ndarray([float])
-        :rtype: list(lambda(float x)), list([float, float])
+        """
+        self.dom, self.target = dom, target
+        self.polynomial = HermiteSubdomainPolynomial()
+
+    def interpolate(self):
+        """
+        :rtype: tuple(list(lambda(float x)), list([float, float]))
         """
         n = 2    # Number of points in subdomain
         sub_doms = []
-        poly = self.polynomial
-        a, b= self.determine_model_parameters(dom=dom, target=target)
+        poly, dom, target = self.polynomial, self.dom, self.target
+        a, b = self.determine_model_parameters()
         y = []
         for i, v in enumerate(dom[:-1]):
             sub_doms.append(dom[i:i+2])
@@ -39,12 +42,13 @@ class HermiteSubdomainInterpolator:
 
         return y, sub_doms
 
-    def determine_model_parameters(self, dom, target):
+    def determine_model_parameters(self):
         """
         :type dom: ndarray([float])
         :type target: ndarray([float])
-        :rtype: ndarray([float])
+        :rtype: tuple(ndarray([float]), ndarray([float]))
         """
+        dom, target = self.dom, self.target
         a = target
         b = []
         for i, _ in enumerate(target):
@@ -61,6 +65,11 @@ class HermiteSubdomainInterpolator:
         return a, b
 
     def determine_sub_domain_index(self, x, sub_doms):
+        """
+        :type x: float
+        :type sub_doms: ndarray([float])
+        :rtype: int
+        """
         for i, rng in enumerate(sub_doms):
             x_min, x_max = rng[0], rng[1]
             if (x >= x_min) and (x <= x_max):
@@ -76,8 +85,8 @@ if __name__ == "__main__":
     B = np.array([0.0, 1.3, 1.4, 1.7, 1.8, 1.9])
     H = np.array([0.0, 540.6, 1062.8, 8687.4, 13924.3, 22650.2])
     dom = H; target = B
-    hsi = HermiteSubdomainInterpolator()
-    y, sub_doms = hsi.interpolate(dom, target)
+    hsi = HermiteSubdomainInterpolator(dom=dom, target=target)
+    y, sub_doms = hsi.interpolate()
     x_range = np.linspace(0.0, H[-1], num=40000)
     interpolation = []
     for x in x_range:

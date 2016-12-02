@@ -4,24 +4,28 @@
 # Author: Mido Assran
 # Date: Dec. 1, 2016
 # Description: Collection of polynomial classes / data structures.
+from polynomial import Polynomial
 
 class LagrangePolynomial:
 
-    def evaluate(self, x, j, dom):
-        """
-        :type x: float
-        :type j: int
-        :rtype: float
-        """
-        def F(x=x, j=j):
-            val = 1.0
-            for r, x_r in enumerate(dom):
-                if r != j:
-                    val *= (x - x_r)
-            return val
+    def __init__(self, j, dom):
+        polynomial = Polynomial()
+        for r, x_r in enumerate(dom):
+            if r != j:
+                polynomial.multiply_binomial(-1.0 * x_r)
+        polynomial.divide_scalar(polynomial.evaluate(dom[j]))
 
-        # Return the evaluated lagrange polynomial
-        return F(x, j) / F(dom[j], j)
+        self.polynomial = polynomial
+        self.coefficients = polynomial.coefficients
+        self.degree = polynomial.degree
+
+    def evaluate(self, x):
+        return self.polynomial.evaluate(x)
+
+    def __str__(self):
+        l = ["{:.5}x^{}".format(c, self.degree-i) for i, c in enumerate(self.coefficients)]
+        return " + ".join(l)
+
 
 class HermiteSubdomainPolynomial:
 
@@ -42,3 +46,12 @@ class HermiteSubdomainPolynomial:
 
     def evaluate_V(self, x, j, dom):
         return (x - dom[j]) * (self._lagrange(x, j, dom) ** 2)
+
+
+class LagrangeSubdomainPolynomial:
+
+    def evaluatex(self, x, j, dom):
+        if j == 0:
+            return (x - dom[j+1]) / (dom[j] - dom[j+1])
+        elif j == 1:
+            return (x - dom[j-1]) / (dom[j] - dom[j-1])
