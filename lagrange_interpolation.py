@@ -85,6 +85,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     print("\n", end="\n")
+    print("# ------------ Question 1 ------------ #", end="\n")
     print("# ---------- Interpolation ---------- #", end="\n")
     print("# ---------- First 6 Points --------- #", end="\n")
     print("# ----------------------------------- #", end="\n\n")
@@ -108,6 +109,7 @@ if __name__ == "__main__":
 
 
     print("\n", end="\n")
+    print("# ------------ Question 1 ------------ #", end="\n")
     print("# ---------- Interpolation ---------- #", end="\n")
     print("# -------- 6 Separate Points -------- #", end="\n")
     print("# ----------------------------------- #", end="\n\n")
