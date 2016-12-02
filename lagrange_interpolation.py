@@ -8,7 +8,6 @@
 # squares error with respect to the (domain, target) points.
 
 import numpy as np
-import matplotlib.pyplot as plt
 from utils import *
 from choleski import CholeskiDecomposition
 from polynomial_collective import LagrangePolynomial
@@ -83,13 +82,15 @@ class LagrangeInterpolator:
 
 
 if __name__ == "__main__":
+    import matplotlib.pyplot as plt
+
     print("\n", end="\n")
     print("# ---------- Interpolation ---------- #", end="\n")
     print("# ---------- First 6 Points --------- #", end="\n")
     print("# ----------------------------------- #", end="\n\n")
     B = np.array([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
     H = np.array([0.0, 14.7, 36.5, 71.7, 121.4, 197.4])
-    dom, target = B, H
+    dom, target = H, B
     li = LagrangeInterpolator(dom=dom, target=target)
     y = li.interpolate()
     x_range = np.linspace(0.0, dom[-1], num=10000)
@@ -100,8 +101,8 @@ if __name__ == "__main__":
     ax.plot(x_range, interpolation, 'r', label="Lagrange BH")
     legend = ax.legend(loc='best', fontsize='small')
     plt.title('BH Interpolation')
-    plt.ylabel('H')
-    plt.xlabel('B')
+    plt.ylabel('B')
+    plt.xlabel('H')
     plt.show()
     print("# ----------------------------------- #", end="\n\n")
 
@@ -112,7 +113,7 @@ if __name__ == "__main__":
     print("# ----------------------------------- #", end="\n\n")
     B = np.array([0.0, 1.3, 1.4, 1.7, 1.8, 1.9])
     H = np.array([0.0, 540.6, 1062.8, 8687.4, 13924.3, 22650.2])
-    dom, target = B, H
+    dom, target = H, B
     li = LagrangeInterpolator(dom=dom, target=target)
     y = li.interpolate()
     x_range = np.linspace(0.0, dom[-1], num=10000)
@@ -122,8 +123,8 @@ if __name__ == "__main__":
     ax.plot(dom, target, 'bo', label="Orignal BH")
     ax.plot(x_range, interpolation, 'r', label="Lagrange BH")
     legend = ax.legend(loc='best', fontsize='small')
-    plt.title('HB Interpolation')
-    plt.ylabel('H')
-    plt.xlabel('B')
+    plt.title('BH Interpolation')
+    plt.ylabel('B')
+    plt.xlabel('H')
     plt.show()
     print("# ----------------------------------- #", end="\n\n")
