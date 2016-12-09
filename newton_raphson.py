@@ -8,6 +8,7 @@
 
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 from utils import matrix_dot_matrix, matrix_transpose, matrix_dot_vector
 from choleski import CholeskiDecomposition
 
@@ -41,12 +42,15 @@ class NewtonRaphsonSolver:
         :type stopping_ratio: float
         :type f: list(lambda(float, float))
         :type J: list(lambda(float, float))
-        :rtype: dict('num_steps': int, 'arg_history': list(float))
+        :rtype: dict('num_steps': int,
+                     'arg_history': list(float),
+                     'error_history': list(float))
         """
         x = starting_guess
         arg_history = [x]
         chol = CholeskiDecomposition()
         error = np.linalg.norm([f[0](x[0], x[1]), f[1](x[0], x[1])])/200e-3
+        error_history = []
 
         itr = 0
         while error > stopping_ratio:
@@ -65,10 +69,11 @@ class NewtonRaphsonSolver:
             x += temp
             arg_history.append(x)
             error = np.linalg.norm([f[0](x[0], x[1]), f[1](x[0], x[1])])/220e-3
+            error_history.append(error)
             print(x, error)
 
 
-        return {'num_steps': itr, 'arg_history': arg_history}
+        return {'num_steps': itr, 'arg_history': arg_history, 'error_history': error_history}
 
 if __name__ == "__main__":
     # import matplotlib.pyplot as plt
@@ -147,8 +152,16 @@ if __name__ == "__main__":
 
     nrs = NewtonRaphsonSolver()
     starting_guess = np.array([0.0, 0.0])
+    print("nrs.solve(starting_guess=" + str(starting_guess), "):", sep="", end="\n\n")
     result = nrs.solve_2D(starting_guess=starting_guess, f=objective, J=Jacobian)
-    print("nrs.solve(starting_guess=" + str(starting_guess), "):", sep="")
-    print("\n   num_steps: ", result['num_steps'], "    flux: ", result['arg_history'][-1])
+    print("\nnum_steps: ", result['num_steps'], "    flux: ", result['arg_history'][-1])
 
+    n1_error = [1.0 / (2 ** (2 ** (i+1 / 0.9))) for i, e in enumerate(result['error_history'])]
+    n_error = [e for i, e in enumerate(result['error_history'])]
+    # Perform postprocessing
+    fig, ax = plt.subplots()
+    ax.semilogy(n_error, 'r', label="Error")
+    ax.semilogy(n1_error, 'b', label="Quadratic Convergence")
+    legend = ax.legend(loc='best', fontsize='small')
+    plt.show()
     print("# ----------------------------------- #", end="\n\n")
