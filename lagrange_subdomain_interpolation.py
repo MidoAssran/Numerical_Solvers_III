@@ -78,7 +78,7 @@ class LagrangeSubdomainInterpolator:
 
         r_str = "Polynomial:\n"
         for i, poly_coeff in enumerate(self.coefficients):
-            r_str += "  Subdomain " + str(i) + ":\n   "
+            r_str += "  Subdomain " + str(i+1) + ": " + str(self.sub_doms[i]) + "\n   "
             l = ["({:.5})*x^{}".format(c, self.degree-i) for i, c in enumerate(poly_coeff)]
             r_str += " + ".join(l) + "\n"
 

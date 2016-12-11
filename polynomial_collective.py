@@ -1,5 +1,5 @@
 # ----------------------------------------- #
-# Polynomials
+# Polynomial Collective
 # ----------------------------------------- #
 # Author: Mido Assran
 # Date: Dec. 1, 2016

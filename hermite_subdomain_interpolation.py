@@ -85,7 +85,7 @@ if __name__ == "__main__":
     print("# ----------------------------------- #", end="\n\n")
     B = np.array([0.0, 1.3, 1.4, 1.7, 1.8, 1.9])
     H = np.array([0.0, 540.6, 1062.8, 8687.4, 13924.3, 22650.2])
-    dom, target = H, B
+    dom, target = B, H
     hsi = HermiteSubdomainInterpolator(dom=dom, target=target)
     y, sub_doms = hsi.interpolate()
     x_range = np.linspace(0.0, dom[-1], num=40000)
@@ -98,8 +98,8 @@ if __name__ == "__main__":
     ax.plot(dom, target, 'bo', label="Orignal BH")
     ax.plot(x_range, interpolation, 'r', label="Hermite BH")
     legend = ax.legend(loc='best', fontsize='small')
-    plt.title('BH Interpolation')
-    plt.ylabel('B')
-    plt.xlabel('H')
+    plt.title('HB Interpolation')
+    plt.ylabel('H')
+    plt.xlabel('B')
     plt.show()
     print("# ----------------------------------- #", end="\n\n")
