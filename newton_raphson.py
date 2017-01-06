@@ -159,7 +159,7 @@ if __name__ == "__main__":
     starting_guess = np.array([0.0, 0.0])
     print("nrs.solve(starting_guess=" + str(starting_guess), "):", sep="", end="\n\n")
     result = nrs.solve_2D(starting_guess=starting_guess, f=objective, J=Jacobian)
-    print("\nnum_steps: ", result['num_steps'], "    flux: ", result['arg_history'][-1])
+    print("\nnum_steps: ", result['num_steps'], "    voltages: ", result['arg_history'][-1])
 
     n1_error = [1.0 / (2 ** (2 ** (i+1 / 0.9))) for i, e in enumerate(result['error_history'])]
     n_error = [e for i, e in enumerate(result['error_history'])]

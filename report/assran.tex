@@ -187,10 +187,13 @@ and take the slope at the point $(y_j, x_j)$, denoted $s_j$, to be
 $$\boxed{s_j = w \cdot s_{pos} + (1 - w) \cdot s_{pri}}$$
 where the weight $w$ is
 $$w = \frac{s_{pri}}{s_{pos} + s_{pri}}$$
-The result is that the prior and posterior slopes have an equilibrated representation in the slope estimate, without either one overpowering the other. Obviously for the first and last points in our domain we simply only use the posterior and the prior slopes respectively since there is no third point to be leveraged. If we were to simply define the slope at point $(y_j, x_j)$ to be $\frac{y_{j+1} - y_{j-1}}{x_{j+1} - x_{j-1}}$, then the much larger slope would overpower the much smaller slope, and the interpolation would overshoot. Similarly, if we only use the posterior or the prior slopes, then we would be discarding valuable information. The result of the interpolation is shown in Figure \ref{fig:H_BH_sep_six}, where both the B vs H and the H vs B interpolations are shown. Clearly our weighted average works extremely well in both cases when the posterior is much larger than the prior (HB interpolation), and when the prior is much larger than the posterior (BH interpolation).
+The result is that the prior and posterior slopes have an equilibrated representation in the slope estimate, without either one overpowering the other. Obviously for the first and last points in our domain we simply only use the posterior and the prior slopes respectively since there is no third point to be leveraged. If we were to simply define the slope at point $(y_j, x_j)$ to be $\frac{y_{j+1} - y_{j-1}}{x_{j+1} - x_{j-1}}$, then the much larger slope would overpower the much smaller slope, and the interpolation would overshoot. Similarly, if we only use the posterior or the prior slopes, then we would be discarding valuable information.
 
 Now back to the \textit{HermiteSubdomainInterpolator} class. After it determines its model parameters, $\{a_j, b_j\}$, and the corresponding Hermite Polynomials, $\{U_j, V_j\}$, it can be used to interpolate the data simply by calling its \textit{interpolate()} instance method. This method returns a Python lambda, i.e. a functional method, which evaluates equation (\ref{eq:hermite_polynomial}).
 \textsc{\footnotesize *Note that the implementation works with any number of domain points, but in our mathematical representations we show only six points since those are what are used in this subsection of the assignment.}
+
+The result of the interpolation is shown in Figure \ref{fig:H_BH_sep_six}, where both the B vs H and the H vs B interpolations are shown. Clearly our weighted average works extremely well in both cases when the posterior is much larger than the prior (HB interpolation), and when the prior is much larger than the posterior (BH interpolation). \textbf{This result is certainly plausible and could lie close to the true BH curve.}
+
 \begin{figure}[!hbp]
 	\begin{center}
 		\begin{minipage}{ 0.8\textwidth}
@@ -390,8 +393,8 @@ where $w_0$ is the weight in the one point Gauss Legendre subinterval, and $\zet
 The integration is carried out using the \textit{OnePointGaussLegendre} class, by calling its \textit{integrate(function, interval, num\_segments)} function which takes as input the function to be integrated in the form of a Python lambda, the interval over which to perform the integration, and the number of segments the interval is to be split up into. This method then performs the aforementioned logic, and returns the result of the integration (scalar).
 
 \subsection*{Part a}
-We use the program to integrate the function $f(x) = sin(x)$ on the interval $[0, 1]$ for $N$ number of segments $1, 2, \ldots , 20$. Figure \ref{fig:GL_sin} shows the base 10 logarithm of the error in the integration plotted versus the base 10 logarithm of the number of subintervals used. The console output providing the exact integration and error estimates for each number of subintervals is also shown in Figure \ref{fig:GL_sin}. The error minimization curve observed is known as a ``linearly convergent'' error in the literature, and corresponds to minimization of the mathematical form
-$$ error \propto \frac{1}{\kappa^N} $$
+We use the program to integrate the function $f(x) = sin(x)$ on the interval $[0, 1]$ for $N$ number of segments $1, 2, \ldots , 20$. Figure \ref{fig:GL_sin} shows the base 10 logarithm of the error in the integration plotted versus the base 10 logarithm of the number of subintervals used. The console output providing the exact integration and error estimates for each number of subintervals is also shown in Figure \ref{fig:GL_sin}. The error minimization curve observed is known as a ``sublinearly convergent'' error in the literature, and corresponds to minimization of the mathematical form
+$$ error \propto \frac{1}{N + 1} $$
 Intuitively what this means is that when the number of segments used is quite small, it is very beneficial to increase the number of segments used. This also means that further incremental increases in the number of segments used results in less incremental benefits. That is, our error will improve very quickly initially, and then the improvements will slow down as we increase the number of segments used.
 
 \begin{figure}[!hbp]
@@ -402,14 +405,14 @@ Intuitively what this means is that when the number of segments used is quite sm
 		\begin{minipage}{ \textwidth}
 			\includegraphics[width=\textwidth]{GL_sin.png}\\
 		\end{minipage}
-		\caption{\label{fig:GL_sin}The error in the Gauss Legendre integration of $sin(x)$ over the interval $[0,1]$ plotted on a logarithmic scale vs the logarithm of the number of subintervals the range is broken into.}
+		\caption{\label{fig:GL_sin}The base 10 logarithm in the error in the Gauss Legendre integration of $sin(x)$ over the interval $[0,1]$ plotted vs the base 10 logarithm of the number of subintervals the range is broken into.}
 	\end{center}
 \end{figure}
 
 \FloatBarrier
 \subsection*{Part b}
-We use the program to integrate the function $f(x) = ln(x)$ on the interval $[0, 1]$ for $N$ number of segments $1, 2, \ldots , 20$. Figure \ref{fig:GL_log} shows the base 10 logarithm of the error in the integration plotted versus the base 10 logarithm of the number of subintervals used. The console output providing the exact integration and error estimates for each number of subintervals is also shown in Figure \ref{fig:GL_log}. The error minimization curve observed is known as a ``linearly convergent'' error in the literature, and corresponds to minimization of the mathematical form
-$$ error \propto \frac{1}{\kappa^N} $$
+We use the program to integrate the function $f(x) = ln(x)$ on the interval $[0, 1]$ for $N$ number of segments $1, 2, \ldots , 20$. Figure \ref{fig:GL_log} shows the base 10 logarithm of the error in the integration plotted versus the base 10 logarithm of the number of subintervals used. The console output providing the exact integration and error estimates for each number of subintervals is also shown in Figure \ref{fig:GL_log}. The error minimization curve observed is known as a ``sublinearly convergent'' error in the literature, and corresponds to minimization of the mathematical form
+$$ error \propto \frac{1}{N + 1} $$
 Intuitively what this means is that when the number of segments used is quite small, it is very beneficial to increase the number of segments used. This also means that further incremental increases in the number of segments used results in less incremental benefits. That is, our error will improve very quickly initially, and then the improvements will slow down as we increase the number of segments used. This result is very similar to that of Part a.
 
 \begin{figure}[!hbp]
@@ -420,15 +423,15 @@ Intuitively what this means is that when the number of segments used is quite sm
 		\begin{minipage}{ \textwidth}
 			\includegraphics[width=\textwidth]{GL_log}\\
 		\end{minipage}
-		\caption{\label{fig:GL_log}The error in the Gauss Legendre integration of $ln(x)$ over the interval $[0,1]$ plotted on a logarithmic scale vs the logarithm of the number of subintervals the range is broken into.}
+		\caption{\label{fig:GL_log}The base 10 logarithm in the error in the Gauss Legendre integration of $ln(x)$ over the interval $[0,1]$ plotted vs the base 10 logarithm of the number of subintervals the range is broken into.}
 	\end{center}
 \end{figure}
 
 \FloatBarrier
 \subsection*{Part c}
-We use the program to integrate the function $f(x) = ln(0.2 |sin(x)|)$ on the interval $[0, 1]$ for $N$ number of segments $1, 2, \ldots , 20$. Figure \ref{fig:GL_log_sin} shows the base 10 logarithm of the error in the integration plotted versus the base 10 logarithm of the number of subintervals used. The console output providing the exact integration and error estimates for each number of subintervals is also shown in Figure \ref{fig:GL_log_sin}. The error minimization curve observed appears to be slightly ``superlinear''. That is, the error appears to be decreasing quadratically
-$$error \propto \frac{1}{\kappa^{\kappa^{N}}}$$
-which is faster than in Part a and Part b.
+We use the program to integrate the function $f(x) = ln(0.2 |sin(x)|)$ on the interval $[0, 1]$ for $N$ number of segments $1, 2, \ldots , 20$. Figure \ref{fig:GL_log_sin} shows the base 10 logarithm of the error in the integration plotted versus the base 10 logarithm of the number of subintervals used. The console output providing the exact integration and error estimates for each number of subintervals is also shown in Figure \ref{fig:GL_log_sin}. Once again, the error minimization curve observed appears to be ``sublinearly convergent'', and corresponds to minimization of the mathematical form
+$$ error \propto \frac{1}{N + 1} $$
+However it also appears to minimize the error faster than Part a and Part b, i.e less sublinear than Part a and Part b, but this is very difficult to judge qualitatively.
 
 \begin{figure}[!hbp]
 	\begin{center}
@@ -438,7 +441,7 @@ which is faster than in Part a and Part b.
 		\begin{minipage}{ \textwidth}
 			\includegraphics[width=\textwidth]{GL_log_sin}\\
 		\end{minipage}
-		\caption{\label{fig:GL_log_sin}The error in the Gauss Legendre integration of $ln(0.2 |sin(x)|)$ over the interval $[0,1]$ plotted on a logarithmic scale vs the logarithm of the number of subintervals the range is broken into.}
+		\caption{\label{fig:GL_log_sin}The base 10 logarithm in the error in the Gauss Legendre integration of $ln(0.2 |sin(x)|)$ over the interval $[0,1]$ plotted vs the base 10 logarithm of the number of subintervals the range is broken into.}
 	\end{center}
 \end{figure}
 

@@ -72,68 +72,68 @@ class OnePointGaussLegendre:
 if __name__ == "__main__":
     import math
 
-    print("\n", end="\n")
-    print("# ------------ Question 3 ------------ #", end="\n")
-    print("# ---------- Gauss-Legendre ---------- #", end="\n")
-    print("# ------------------------------------ #", end="\n\n")
-    opgl = OnePointGaussLegendre()
-    f = lambda x: math.sin(x)
-    print("N \t integrate(sin(x)) \t\t error")
-    rng = (0.0, 1.0)
-    truth = 0.45970
-    errors = []
-    n_vector = [i for i in range(1,21)]
-    for N in n_vector:
-        result = opgl.integrate(function=f, interval=rng, num_segments=N)
-        error = abs(truth-result)
-        print(N, result, error, sep='\t')
-        errors.append(error)
+    # print("\n", end="\n")
+    # print("# ------------ Question 3 ------------ #", end="\n")
+    # print("# ---------- Gauss-Legendre ---------- #", end="\n")
+    # print("# ------------------------------------ #", end="\n\n")
+    # opgl = OnePointGaussLegendre()
+    # f = lambda x: math.sin(x)
+    # print("N \t integrate(sin(x)) \t\t error")
+    # rng = (0.0, 1.0)
+    # truth = 0.45970
+    # errors = []
+    # n_vector = [i for i in range(1,21)]
+    # for N in n_vector:
+    #     result = opgl.integrate(function=f, interval=rng, num_segments=N)
+    #     error = abs(truth-result)
+    #     print(N, result, error, sep='\t')
+    #     errors.append(error)
     # n_vector = [math.log(N, 10) for N in n_vector]
     # errors = [math.log(e, 10) for e in errors]
-    fig, ax = plt.subplots()
-    ax.plot(n_vector, errors, 'r', label="Error")
-    ax.set_yscale('log')
-    ax.set_xscale('log')
-    ax.set_xlim([n_vector[0], n_vector[-1]])
-    ax.set_ylim([errors[-1], errors[0]])
-    legend = ax.legend(loc='best', fontsize='small')
-    plt.title('Gauss-Legendre Error vs Resolution')
-    plt.ylabel('Error')
-    plt.xlabel('N (number of subintervals)')
-    plt.show()
-    print("# ------------------------------------ #", end="\n\n")
-
-
-    print("\n", end="\n")
-    print("# ------------ Question 3 ------------ #", end="\n")
-    print("# ---------- Gauss-Legendre ---------- #", end="\n")
-    print("# ------------------------------------ #", end="\n\n")
-    opgl = OnePointGaussLegendre()
-    f = lambda x: math.log(x)
-    print("N \t integrate(log(x)) \t\t error")
-    rng = (0.0, 1.0)
-    truth = -1.0
-    errors = []
-    n_vector = [i for i in range(1,21)]
-    for N in n_vector:
-        result = opgl.integrate(function=f, interval=rng, num_segments=N)
-        error = abs(truth-result)
-        print(N, result, error, sep='\t')
-        errors.append(error)
+    # fig, ax = plt.subplots()
+    # ax.plot(n_vector, errors, 'r', label="Error")
+    # # ax.set_yscale('log')
+    # # ax.set_xscale('log')
+    # # ax.set_xlim([n_vector[0], n_vector[-1]])
+    # # ax.set_ylim([errors[-1], errors[0]])
+    # legend = ax.legend(loc='best', fontsize='small')
+    # plt.title('Gauss-Legendre Error vs Resolution')
+    # plt.ylabel('Error')
+    # plt.xlabel('N (number of subintervals)')
+    # plt.show()
+    # print("# ------------------------------------ #", end="\n\n")
+    #
+    #
+    # print("\n", end="\n")
+    # print("# ------------ Question 3 ------------ #", end="\n")
+    # print("# ---------- Gauss-Legendre ---------- #", end="\n")
+    # print("# ------------------------------------ #", end="\n\n")
+    # opgl = OnePointGaussLegendre()
+    # f = lambda x: math.log(x)
+    # print("N \t integrate(log(x)) \t\t error")
+    # rng = (0.0, 1.0)
+    # truth = -1.0
+    # errors = []
+    # n_vector = [i for i in range(1,21)]
+    # for N in n_vector:
+    #     result = opgl.integrate(function=f, interval=rng, num_segments=N)
+    #     error = abs(truth-result)
+    #     print(N, result, error, sep='\t')
+    #     errors.append(error)
     # n_vector = [math.log(N, 10) for N in n_vector]
     # errors = [math.log(e, 10) for e in errors]
-    fig, ax = plt.subplots()
-    ax.plot(n_vector, errors, 'r', label="Error")
-    ax.set_yscale('log')
-    ax.set_xscale('log')
-    ax.set_xlim([n_vector[0], n_vector[-1]])
-    ax.set_ylim([errors[-1], errors[0]])
-    legend = ax.legend(loc='best', fontsize='small')
-    plt.title('Gauss-Legendre Error vs Resolution')
-    plt.ylabel('Error')
-    plt.xlabel('N (number of subintervals)')
-    plt.show()
-    print("# ------------------------------------ #", end="\n\n")
+    # fig, ax = plt.subplots()
+    # ax.plot(n_vector, errors, 'r', label="Error")
+    # # ax.set_yscale('log')
+    # # ax.set_xscale('log')
+    # # ax.set_xlim([n_vector[0], n_vector[-1]])
+    # # ax.set_ylim([errors[-1], errors[0]])
+    # legend = ax.legend(loc='best', fontsize='small')
+    # plt.title('Gauss-Legendre Error vs Resolution')
+    # plt.ylabel('Error')
+    # plt.xlabel('N (number of subintervals)')
+    # plt.show()
+    # print("# ------------------------------------ #", end="\n\n")
 
 
     print("\n", end="\n")
@@ -152,14 +152,16 @@ if __name__ == "__main__":
         error = abs(truth-result)
         print(N, result, error, sep='\t')
         errors.append(error)
-    # n_vector = [math.log(N, 10) for N in n_vector]
-    # errors = [math.log(e, 10) for e in errors]
+    n_vector = [math.log(N, 10) for N in n_vector]
+    errors = [math.log(e, 10) for e in errors]
+    test = [3*math.log(0.948 / ((N + 1)), 10) for N in n_vector]
     fig, ax = plt.subplots()
     ax.plot(n_vector, errors, 'r', label="Error")
-    ax.set_yscale('log')
-    ax.set_xscale('log')
-    ax.set_xlim([n_vector[0], n_vector[-1]])
-    ax.set_ylim([errors[-1], errors[0]])
+    ax.plot(n_vector, test, 'b', label="Ideal")
+    # ax.set_yscale('log')
+    # ax.set_xscale('log')
+    # ax.set_xlim([n_vector[0], n_vector[-1]])
+    # ax.set_ylim([errors[-1], errors[0]])
     legend = ax.legend(loc='best', fontsize='small')
     plt.title('Gauss-Legendre Error vs Resolution')
     plt.ylabel('Error')
@@ -168,42 +170,42 @@ if __name__ == "__main__":
     print("# ------------------------------------ #", end="\n\n")
 
 
-    print("\n", end="\n")
-    print("# ------------ Question 3 ------------ #", end="\n")
-    print("# ---------- Gauss-Legendre ---------- #", end="\n")
-    print("# ------------------------------------ #", end="\n\n")
-    opgl = OnePointGaussLegendre()
-    f = lambda x: math.log(x)
-    print("\t\t\t \033[1m  integrate(log(x)) \t\t error")
-    print("\033[0m")
-    rng = (0.0, 1.0)
-    truth = -1.0
-    N = 10
-    result_even = opgl.integrate(function=f, interval=rng, num_segments=N)
-    error_even = abs(truth-result_even)
-    print("Even Spacing:", result_even, error_even, sep="\t\t")
-    result_uneven = opgl.integrate_uneven(function=f, interval=rng, num_segments=N)
-    error_uneven = abs(truth-result_uneven)
-    print("Uneven Spacing:", result_uneven, error_uneven, sep="\t\t")
-    print("# ------------------------------------ #", end="\n\n")
-
-
-
-    print("\n", end="\n")
-    print("# ------------ Question 3 ------------ #", end="\n")
-    print("# ---------- Gauss-Legendre ---------- #", end="\n")
-    print("# ------------------------------------ #", end="\n\n")
-    opgl = OnePointGaussLegendre()
-    f = lambda x: math.log(0.2 * abs(math.sin(x)))
-    print("\t\t \033[1m  integrate(log(0.2 |sin(x)|)) \t\t error")
-    print("\033[0m")
-    rng = (0.0, 1.0)
-    truth = -2.662
-    N = 10
-    result_even = opgl.integrate(function=f, interval=rng, num_segments=N)
-    error_even = abs(truth-result_even)
-    print("Even Spacing:", result_even, error_even, sep="\t\t")
-    result_uneven = opgl.integrate_uneven(function=f, interval=rng, num_segments=N)
-    error_uneven = abs(truth-result_uneven)
-    print("Uneven Spacing:", result_uneven, error_uneven, sep="\t\t")
-    print("# ------------------------------------ #", end="\n\n")
+    # print("\n", end="\n")
+    # print("# ------------ Question 3 ------------ #", end="\n")
+    # print("# ---------- Gauss-Legendre ---------- #", end="\n")
+    # print("# ------------------------------------ #", end="\n\n")
+    # opgl = OnePointGaussLegendre()
+    # f = lambda x: math.log(x)
+    # print("\t\t\t \033[1m  integrate(log(x)) \t\t error")
+    # print("\033[0m")
+    # rng = (0.0, 1.0)
+    # truth = -1.0
+    # N = 10
+    # result_even = opgl.integrate(function=f, interval=rng, num_segments=N)
+    # error_even = abs(truth-result_even)
+    # print("Even Spacing:", result_even, error_even, sep="\t\t")
+    # result_uneven = opgl.integrate_uneven(function=f, interval=rng, num_segments=N)
+    # error_uneven = abs(truth-result_uneven)
+    # print("Uneven Spacing:", result_uneven, error_uneven, sep="\t\t")
+    # print("# ------------------------------------ #", end="\n\n")
+    #
+    #
+    #
+    # print("\n", end="\n")
+    # print("# ------------ Question 3 ------------ #", end="\n")
+    # print("# ---------- Gauss-Legendre ---------- #", end="\n")
+    # print("# ------------------------------------ #", end="\n\n")
+    # opgl = OnePointGaussLegendre()
+    # f = lambda x: math.log(0.2 * abs(math.sin(x)))
+    # print("\t\t \033[1m  integrate(log(0.2 |sin(x)|)) \t\t error")
+    # print("\033[0m")
+    # rng = (0.0, 1.0)
+    # truth = -2.662
+    # N = 10
+    # result_even = opgl.integrate(function=f, interval=rng, num_segments=N)
+    # error_even = abs(truth-result_even)
+    # print("Even Spacing:", result_even, error_even, sep="\t\t")
+    # result_uneven = opgl.integrate_uneven(function=f, interval=rng, num_segments=N)
+    # error_uneven = abs(truth-result_uneven)
+    # print("Uneven Spacing:", result_uneven, error_uneven, sep="\t\t")
+    # print("# ------------------------------------ #", end="\n\n")

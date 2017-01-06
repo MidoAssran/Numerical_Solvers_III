@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  11 DEC 2016 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 DEC 2016 16:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -529,20 +529,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--140
 File: H_BH_sep_six.png Graphic file (type png)
 
 <use H_BH_sep_six.png>
-Package pdftex.def Info: H_BH_sep_six.png used on input line 197.
+Package pdftex.def Info: H_BH_sep_six.png used on input line 200.
 (pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
 <H_HB_sep_six.png, id=59, 578.16pt x 433.62pt>
 File: H_HB_sep_six.png Graphic file (type png)
  <use H_HB_sep_six.png>
-Package pdftex.def Info: H_HB_sep_six.png used on input line 200.
+Package pdftex.def Info: H_HB_sep_six.png used on input line 203.
 (pdftex.def)             Requested size: 375.80544pt x 281.84966pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
@@ -550,20 +550,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--201
 <iron_core.png, id=71, 208.78pt x 220.825pt>
 File: iron_core.png Graphic file (type png)
  <use iron_core.png>
-Package pdftex.def Info: iron_core.png used on input line 232.
+Package pdftex.def Info: iron_core.png used on input line 235.
 (pdftex.def)             Requested size: 187.89914pt x 198.75076pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
 <mag_circ.png, id=72, 385.44pt x 279.0425pt>
 File: mag_circ.png Graphic file (type png)
  <use mag_circ.png>
-Package pdftex.def Info: mag_circ.png used on input line 237.
+Package pdftex.def Info: mag_circ.png used on input line 240.
 (pdftex.def)             Requested size: 234.8775pt x 170.04109pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
@@ -573,10 +573,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 237--238
 <NR_Q1.png, id=85, 822.07124pt x 811.03pt>
 File: NR_Q1.png Graphic file (type png)
  <use NR_Q1.png>
-Package pdftex.def Info: NR_Q1.png used on input line 287.
+Package pdftex.def Info: NR_Q1.png used on input line 290.
 (pdftex.def)             Requested size: 469.75502pt x 463.44281pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
  []
 
@@ -584,10 +584,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--288
 File: SS_Q1.png Graphic file (type png)
 
 <use SS_Q1.png>
-Package pdftex.def Info: SS_Q1.png used on input line 307.
+Package pdftex.def Info: SS_Q1.png used on input line 310.
 (pdftex.def)             Requested size: 469.75502pt x 476.84839pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
@@ -595,117 +595,117 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--308
 File: circuit_Q2.png Graphic file (type png)
 
 <use circuit_Q2.png>
-Package pdftex.def Info: circuit_Q2.png used on input line 329.
+Package pdftex.def Info: circuit_Q2.png used on input line 332.
 (pdftex.def)             Requested size: 187.89914pt x 172.10266pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
 
  []
 
-[18 <./circuit_Q2.png>] <o_NR_Q2.png, id=106, 888.31876pt x 384.43625pt>
+[18 <./circuit_Q2.png>] <o_NR_Q2.png, id=106, 862.22125pt x 376.40625pt>
 File: o_NR_Q2.png Graphic file (type png)
 
 <use o_NR_Q2.png>
-Package pdftex.def Info: o_NR_Q2.png used on input line 353.
-(pdftex.def)             Requested size: 469.75502pt x 203.29268pt.
+Package pdftex.def Info: o_NR_Q2.png used on input line 356.
+(pdftex.def)             Requested size: 469.75502pt x 205.07127pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
 
  []
 
 <NR_Q2.png, id=107, 578.16pt x 433.62pt>
 File: NR_Q2.png Graphic file (type png)
  <use NR_Q2.png>
-Package pdftex.def Info: NR_Q2.png used on input line 357.
+Package pdftex.def Info: NR_Q2.png used on input line 360.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 
-LaTeX Warning: Float too large for page by 19.77806pt on input line 361.
+LaTeX Warning: Float too large for page by 21.55666pt on input line 364.
 
 [19] [20 <./o_NR_Q2.png> <./NR_Q2.png>] [21]
 <o_GL_sin.png, id=121, 824.07875pt x 583.17876pt>
 File: o_GL_sin.png Graphic file (type png)
  <use o_GL_sin.png>
-Package pdftex.def Info: o_GL_sin.png used on input line 400.
+Package pdftex.def Info: o_GL_sin.png used on input line 403.
 (pdftex.def)             Requested size: 328.82707pt x 232.69786pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
 
  []
 
 <GL_sin.png, id=122, 578.16pt x 433.62pt>
 File: GL_sin.png Graphic file (type png)
  <use GL_sin.png>
-Package pdftex.def Info: GL_sin.png used on input line 403.
+Package pdftex.def Info: GL_sin.png used on input line 406.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
 
  []
 
 
-LaTeX Warning: Float too large for page by 11.98325pt on input line 407.
+LaTeX Warning: Float too large for page by 25.58325pt on input line 410.
 
 [22] [23 <./o_GL_sin.png> <./GL_sin.png>]
 <o_GL_log.png, id=131, 827.09pt x 593.21625pt>
 File: o_GL_log.png Graphic file (type png)
  <use o_GL_log.png>
-Package pdftex.def Info: o_GL_log.png used on input line 418.
+Package pdftex.def Info: o_GL_log.png used on input line 421.
 (pdftex.def)             Requested size: 328.82707pt x 235.85211pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 418--419
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
 
 <GL_log.png, id=132, 578.16pt x 433.62pt>
 File: GL_log.png Graphic file (type png)
  <use GL_log.png>
-Package pdftex.def Info: GL_log.png used on input line 421.
+Package pdftex.def Info: GL_log.png used on input line 424.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
 
 
-LaTeX Warning: Float too large for page by 15.1375pt on input line 425.
+LaTeX Warning: Float too large for page by 28.7375pt on input line 428.
 
 [24] [25 <./o_GL_log.png> <./GL_log.png>]
 <o_GL_log_sin.png, id=142, 827.09pt x 580.1675pt>
 File: o_GL_log_sin.png Graphic file (type png)
  <use o_GL_log_sin.png>
-Package pdftex.def Info: o_GL_log_sin.png used on input line 436.
+Package pdftex.def Info: o_GL_log_sin.png used on input line 439.
 (pdftex.def)             Requested size: 328.82707pt x 230.66415pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--437
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
 
  []
 
 <GL_log_sin.png, id=143, 578.16pt x 433.62pt>
 File: GL_log_sin.png Graphic file (type png)
  <use GL_log_sin.png>
-Package pdftex.def Info: GL_log_sin.png used on input line 439.
+Package pdftex.def Info: GL_log_sin.png used on input line 442.
 (pdftex.def)             Requested size: 469.75502pt x 352.31538pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--440
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
 
-LaTeX Warning: Float too large for page by 23.54955pt on input line 443.
+LaTeX Warning: Float too large for page by 23.54955pt on input line 446.
 
 [26] [27 <./o_GL_log_sin.png> <./GL_log_sin.png>]
 <o_GL_uneven.png, id=152, 829.0975pt x 490.83376pt>
 File: o_GL_uneven.png Graphic file (type png)
  <use o_GL_uneven.png>
-Package pdftex.def Info: o_GL_uneven.png used on input line 452.
+Package pdftex.def Info: o_GL_uneven.png used on input line 455.
 (pdftex.def)             Requested size: 469.75502pt x 278.093pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--453
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
@@ -768,10 +768,10 @@ Overfull \hbox (54.42232pt too wide) in paragraph at lines 99--100
 
 ] [58] [59]) [60] (./assran.aux) ) 
 Here is how much of TeX's memory you used:
- 7536 strings out of 493014
- 114010 string characters out of 6133351
+ 7529 strings out of 493014
+ 113897 string characters out of 6133351
  287735 words of memory out of 5000000
- 10895 multiletter control sequences out of 15000+600000
+ 10888 multiletter control sequences out of 15000+600000
  16716 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,16n,43p,1299b,1721s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -795,7 +795,7 @@ r9.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on assran.pdf (60 pages, 1714347 bytes).
+Output written on assran.pdf (60 pages, 1732184 bytes).
 PDF statistics:
  327 PDF objects out of 1000 (max. 8388607)
  195 compressed objects within 2 object streams
